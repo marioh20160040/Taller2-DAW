@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#bla"  />
+    <title>vanilla Javascript</title>
+    
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <link rel="stylesheet" href="js/js.js">
+  </head>
+  <body>
+    <form class="formulario">
+      <div>
+          <h1>Menu</h1>
+          
+      </div>
+      <div>
+          <h2>Combos</h2>
+
+          <h3>1.Super Combo $7.25</h3>
+          <p>(tres piezas de pollo, ensalada, papas fritas y bebida grande de su elección)</p>
+
+          <h3>2.Combo Personal $5.75</h3>
+          <p>(dos piezas de pollo, papa frita y bebida mediana)</p>
+
+          <h3>3.Combo infantil $3.50</h3>
+          <p>(1 pieza de pollo, papas fritas y una bebida pequeña)</p>
+      </div>
+      <div>
+          <label for="categoria"></label>
+          <select name="categoria">
+              <option value="">Seleccione Categoría</option>
+              <option value="super">Super Combo</option>
+              <option value="personal">Combo Personal</option>
+              <option value="infantil">Combo Infantil</option>
+          </select>
+      </div><br>
+      <div id="sabor"></div>
+      <div>
+          <label for="sabor">Combos</label><br><br>
+          <p>
+              Ingrese Combo 1 si desea el Super Combo,<br>
+              Ingrese Combo 2 si desea el Combo Personal,<br>
+              Ingrese Combo 3 si desea el Combo Infantil
+          </p>
+          <input type="text" name="sabor" id="sabor" class="input">
+      </div><br>
+      <div>
+          <label for="cantidad">Cantidad:</label><br><br>
+          <input type="number" name="cantidad" id="cantidad" class="input" min=1 max=100 required>
+      </div><br>
+      <div>
+          <h3>Ingredientes adicionales</h3>
+          <input type="checkbox" id="agrandarSoda" value="agrandarSoda">
+          <label for="agrandarSoda">Agrandar soda</label><br>
+
+          <input type="checkbox" id="Ketchup" value="Ketchup">
+          <label for="Ketchup">Ketchup</label><br>
+
+          <input type="checkbox" id="Aderezo" value="Aderezo">
+          <label for="Aderezo">Aderezo de la casa</label><br>
+
+          <input type="checkbox" id="agrandarPapas" value="agrandamientoPapas">
+          <label for="agrandarPapas">Agrandar papas</label><br>
+          
+      </div><br>
+      <div>
+          <input type="submit" id="send-button" name="send-button" class="button">
+          <input type="reset" value="Borrar">
+      </div>
+      <div class="contaainer">
+
+      </div>
+      <div>
+          <input type="button" value="Completaar Compra" id="finish"  class="button">
+      </div>
+  </form>
+    <header class="container-fluid bg-dark position-sticky top-0">
+      <ul
+        class="nav nav-pills mb-3 py-3 container"
+        id="pills-tab"
+        role="tablist"
+      >
+        <li class="nav-item text-primary" role="presentation">
+          <a
+            class="nav-link "
+            id="pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            type="button"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link active"
+            id="pills-profile-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-profile"
+            type="button"
+            role="tab"
+            aria-controls="pills-profile"
+            aria-selected="false"
+            >Productos</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="pills-contact-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-contact"
+            type="button"
+            role="tab"
+            aria-controls="pills-contact"
+            aria-selected="false"
+            >Carrito</a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
+    Producto Añadido al carrito!
+    </div>
+    <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
+      Producto removido!
+    </div>
+
+   
+        <h2 class="h4 m-4 text-primary">Productos</h2>
+
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Ensalada</h5>
+              <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description"> plato que combina hortalizas frías y varias verduras cortadas, mezcladas y aderezadas </p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Papa Frita</h5>
+              <img src="./img/platillo2.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">papas a la francesa, son las patatas que se preparan cortándose en rodajas </p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Pieza de pollo grande</h5>
+              <img src="./img/platillo3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Pollo  crujiente bien condimentado, sin exceso de grasa.</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.75</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Pieza de pollo mediana</h5>
+              <img src="./img/platillo4.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Pollo  crujiente bien condimentado, sin exceso de grasa.</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Pieza de pollo pequeña</h5>
+              <img src="./img/platillo5.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Pollo  crujiente bien condimentado, sin exceso de grasa.</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Bebida Grande</h5>
+              <img src="./img/platillo6.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description"> Puede elegir entre agua, te helados, o sodas de su preferencia</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Bebida mediana</h5>
+              <img src="./img/platillo7.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Puede elegir entre agua, te helados, o sodas de su preferencia</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Bebida mediana</h5>
+              <img src="./img/platillo8.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Puede elegir entre agua, te helados, o sodas de su preferencia.</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.00</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Cafe</h5>
+              <img src="./img/platillo9.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Cafe Caliente</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 0.50</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex justify-content-center mb-4">
+            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+              <h5 class="card-title pt-2 text-center text-primary">Postre</h5>
+              <img src="./img/platillo12.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text text-white-50 description">Puese escoger entre 3 leches, flan, o sorbete.</p>
+                <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
+                <div class="d-grid gap-2">
+                <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+      <div
+        class="tab-pane fade carrito"
+        id="pills-contact"
+        role="tabpanel"
+        aria-labelledby="pills-contact-tab"
+      >
+      <br>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr class="text-primary">
+            <th scope="col">#</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade "
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              1
+            </div>
+            <div
+              class="tab-pane fade show active container"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+          
+        </tbody>
+      </table>
+      <br><br>
+      <div class="row mx-4">
+        <div class="col">
+          <h3 class="itemCartTotal text-white">Total: 0</h3>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <button class="btn btn-success">COMPRAR</button>
+        </div>
+      </div>
+
+      
+      </div>
+    </div>
+
+    <footer class="bg-dark p-3 mt-5">
+      <p class="text-center m-0 text-muted">Ruben Menendez Y Mario Hernandez</p>
+    </footer>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      
+    ></script>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>
